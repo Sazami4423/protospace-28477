@@ -1,0 +1,51 @@
+<div class="main">
+  <div class="inner">
+    <div class="form__wrapper">
+      <h2 class="page-heading">ユーザー新規登録</h2>
+
+        <%# 「モデル名」にはUserモデルであれば@userを渡しましょう。%>
+        <%# 「新規登録機能へのパス」は、devise導入後にrails routesを実行してdevise/registrations#createへのパスを確認し、記載してください。 %>
+        <%= form_with model: @user, url: user_registration_path, local: true do |form| %>
+
+        <div class="field">
+          <%= form.label :email, "メールアドレス" %><br />
+          <%= form.email_field :email, autofocus: true, autocomplete: "email" %>
+        </div>
+
+        <div class="field">
+          <%= form.label :password, "パスワード（6文字以上）" %><br />
+          <%= form.password_field :password, autocomplete: "new-password" %>
+        </div>
+
+        <div class="field">
+          <%= form.label :password_confirmation, "パスワード再入力" %><br />
+          <%= form.password_field :password_confirmation, autocomplete: "new-password" %>
+        </div>
+
+        <div class="field">
+          <%= form.label :name, "ユーザー名" %><br />
+          <%= form.text_field :name %>
+        </div>
+
+        <div class="field">
+          <%= form.label :profile, "プロフィール" %><br />
+          <%= form.text_area :profile, class: :form__text %>
+        </div>
+
+        <div class="field">
+          <%= form.label :occupation, "所属" %><br />
+          <%= form.text_area :occupation, class: :form__text %>
+        </div>
+
+        <div class="field">
+          <%= form.label :position, "役職" %><br />
+          <%= form.text_area :position, class: :form__text %>
+        </div>
+
+        <div class="actions">
+          <%= form.submit "新規登録", class: :form__btn  %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
